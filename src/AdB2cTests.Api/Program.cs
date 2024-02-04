@@ -47,11 +47,11 @@ app.MapGet("/weatherforecast", (ClaimsPrincipal user) =>
     foreach(var claim in user.Claims) {
         Console.WriteLine($"{claim.Type} - {claim.Value}");
     }
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast =  Enumerable.Range(1, 3).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
+            Random.Shared.Next(-10, 45),
             summaries[Random.Shared.Next(summaries.Length)]
         ))
         .ToArray();
