@@ -47,7 +47,7 @@ app.MapGet("/weatherforecast", (ClaimsPrincipal user) =>
     foreach(var claim in user.Claims) {
         Console.WriteLine($"{claim.Type} - {claim.Value}");
     }
-    var forecast =  Enumerable.Range(0, 9).Select(index =>
+    var forecast =  Enumerable.Range(0, 8).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
